@@ -32,7 +32,7 @@ Este é o projeto **Screenmatch** desenvolvido durante meus estudos de **Program
 
 1. Clone o repositório
 2. Abra no IntelliJ IDEA
-3. Execute a classe `Main.java`
+3. Execute a classe `br.com.alura.screenmatch.main.Main.java`
 
 
 ## Autor
