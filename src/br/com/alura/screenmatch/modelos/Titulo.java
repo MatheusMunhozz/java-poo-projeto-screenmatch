@@ -1,6 +1,6 @@
 package br.com.alura.screenmatch.modelos;
 
-public class Titulo implements Comparable<Titulo>{
+public class Titulo implements Comparable<Titulo> {
 
     private String nome;
     private int anoDeLancamento;
@@ -12,6 +12,12 @@ public class Titulo implements Comparable<Titulo>{
     public Titulo(String nome, int anoDeLancamento) {
         this.nome = nome;
         this.anoDeLancamento = anoDeLancamento;
+    }
+
+    public Titulo(TituloOmdb meuTituloOmdb) {
+        this.nome = meuTituloOmdb.title();
+        this.anoDeLancamento = Integer.valueOf(meuTituloOmdb.year());
+        this.duracaoEmMinutos = Integer.valueOf(meuTituloOmdb.runtime().substring(0, 2));
     }
 
     public String getNome() {
@@ -50,18 +56,18 @@ public class Titulo implements Comparable<Titulo>{
         this.duracaoEmMinutos = duracaoEmMinutos;
     }
 
-    public void exibeFichaTecnica(){
+    public void exibeFichaTecnica() {
         System.out.println("Nome do filme: " + nome);
         System.out.println("Ano de lançamento: " + anoDeLancamento);
     }
 
-    public void avalia(double nota){
+    public void avalia(double nota) {
         somaDasAvaliacoes += nota;
         totalDeAvaliacoes++;
         System.out.println(somaDasAvaliacoes);
     }
 
-    public double pegaMedia(){
+    public double pegaMedia() {
         return somaDasAvaliacoes / totalDeAvaliacoes;
     }
 
@@ -69,5 +75,13 @@ public class Titulo implements Comparable<Titulo>{
     @Override
     public int compareTo(Titulo outroFilme) {
         return this.getNome().compareTo(outroFilme.getNome());
+
+    }
+
+    @Override
+    public String toString() {
+        return "nome='" + nome + '\'' +
+                ", anoDeLancamento=" + anoDeLancamento;
+
     }
 }
